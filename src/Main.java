@@ -1,6 +1,8 @@
+import Downloading.Downloader;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Downloader.downloadData("0004A30B001B8015");
     }
 }
