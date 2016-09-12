@@ -11,7 +11,7 @@ import java.io.*;
  * Created by tomas on 12.9.16.
  */
 public class Downloader {
-    private static String dataURL = "https://api.pripoj.me/message/get/";
+    private static String dataURL = "https://a`pi.pripoj.me/message/get/";
     private static String token = "7TOEYELOrQpsJRhVQLRtnCaheigkWmX2";
 
     static public String downloadData(String eui) {
