@@ -10,6 +10,6 @@ public class Record {
 
     @Override
     public String toString() {
-        return createdAt+" -> "+payloadHex;
+        return devEUI + ": " + createdAt+" -> "+payloadHex;
     }
 }
