@@ -1,7 +1,19 @@
 package Parsing;
 
+import Parsing.ResponseObjects.ResponseMain;
+import com.google.gson.Gson;
+
 /**
- * Created by tomas on 12.9.16.
+ * Parser
  */
 public class Parser {
+
+    public static ResponseMain parse(String data){
+        Gson gson = new Gson();
+
+
+        return gson.fromJson(data, ResponseMain.class);
+
+    }
+
 }

@@ -1,9 +1,10 @@
 package Downloading;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-import sun.misc.IOUtils;
+import Parsing.Parser;
+import Parsing.ResponseObjects.ResponseMain;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.xml.ws.Response;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.*;
@@ -14,9 +15,10 @@ import java.io.*;
 public class Downloader {
     private static String dataURL = "https://api.pripoj.me/message/get/";
     private static String token = "7TOEYELOrQpsJRhVQLRtnCaheigkWmX2";
+    private static final int limit = 100;
 
-    static public String downloadData(String eui) {
-        String url = dataURL + eui + "?token=" + token;
+    static private String downloadData(String eui, int limit, int offset) {
+        String url = dataURL + eui + "?token=" + token + "&limit=" + limit + "&offset="+offset;
         String ret = null;
         try {
 
@@ -37,6 +39,18 @@ public class Downloader {
         }
 
         return ret;
+    }
+
+    public static ResponseMain downloadAll(String eui){
+        int off = limit;
+        ResponseMain rm = Parser.parse(downloadData(eui,limit,0));
+
+        while(rm.NoOfRecords() >= off){
+            rm.mergeWith(Parser.parse(downloadData(eui,limit,off)));
+            off += limit;
+        }
+        return rm;
+
     }
 
 }
