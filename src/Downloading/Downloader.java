@@ -13,7 +13,7 @@ import java.io.*;
  * Downloader
  */
 public class Downloader {
-    private static String dataURL = "https://api.pripoj.me/message/get/";
+    private static String dataURL = "https://a`pi.pripoj.me/message/get/";
     private static String token = "7TOEYELOrQpsJRhVQLRtnCaheigkWmX2";
     private static final int limit = 100;
 
